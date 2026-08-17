@@ -16,7 +16,7 @@ const Header = () => {
         Web and Mobile applications developer based in Johannesburg
       </h1>
       <p className="max-w-2xl mx-auto font-ovo">
-        I am an applications developer from Johannesburg, ZA with 1 year of
+        I am a full stack developer from Johannesburg, ZA with 1 year of
         experience in React and React Native.
       </p>
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">

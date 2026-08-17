@@ -18,11 +18,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.className} ${ovo.className}  antialiased leading-8 overflow-x-hidden`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${outfit.className} ${ovo.className}  antialiased leading-8 overflow-x-hidden`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
