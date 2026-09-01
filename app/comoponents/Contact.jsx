@@ -29,7 +29,7 @@ const Contact = () => {
   };
   return (
     <div
-      id="Contact"
+      id="contact"
       className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-nno-repeat bg-center bg-size[90%_auto]"
     >
       <h4 className="text-center mb-2 text-lg font-ovo">Connect with me</h4>
