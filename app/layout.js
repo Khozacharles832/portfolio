@@ -1,4 +1,5 @@
 import { Outfit, Ovo } from "next/font/google";
+import { ThemeProvider } from "./comoponents/theme-provider";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -18,11 +19,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${outfit.className} ${ovo.className}  antialiased leading-8 overflow-x-hidden`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

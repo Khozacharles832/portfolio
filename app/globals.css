@@ -1,19 +1,65 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Fonts */
   --font-outfit: "Outfit", sans-serif;
   --font-ovo: "Ovo", serif;
 
-  /* Colors */
-  --color-lightHover: #fcf4ff;
-  --color-darkHover: #2a004a;
-  --color-darkTheme: #11001f;
+  /* Theme-aware portfolio palette */
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
 
   /* Shadows */
-  --shadow-black: 4px 4px 0 #000;
-  --shadow-white: 4px 4px 0 #fff;
+  --shadow-card: 0 14px 38px rgb(24 32 61 / 8%);
+  --shadow-card-dark: 0 18px 44px rgb(0 0 0 / 26%);
 
   /* Grid columns */
   --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+:root {
+  --canvas: #f7f8fc;
+  --surface: #ffffff;
+  --elevated: #ffffff;
+  --ink: #172033;
+  --muted: #626b7f;
+  --line: #dce1eb;
+  --accent: #6952d8;
+  --accent-strong: #513bbd;
+}
+
+.dark {
+  --canvas: #0b1020;
+  --surface: #121a2d;
+  --elevated: #18233a;
+  --ink: #edf1fa;
+  --muted: #aeb8cc;
+  --line: #2b3853;
+  --accent: #a996ff;
+  --accent-strong: #c1b4ff;
+}
+
+html {
+  background: var(--canvas);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--canvas);
+  color: var(--ink);
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
 }
