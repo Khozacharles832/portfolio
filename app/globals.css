@@ -4,8 +4,8 @@
 
 @theme {
   /* Fonts */
-  --font-outfit: "Outfit", sans-serif;
-  --font-ovo: "Ovo", serif;
+  --font-outfit: var(--font-portfolio), sans-serif;
+  --font-ovo: Georgia, "Times New Roman", serif;
 
   /* Theme-aware portfolio palette */
   --color-canvas: var(--canvas);

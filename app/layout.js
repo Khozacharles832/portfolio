@@ -1,15 +1,15 @@
-import { Outfit, Ovo } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "./comoponents/theme-provider";
 import "./globals.css";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const ovo = Ovo({
-  subsets: ["latin"],
-  weight: ["400"],
+const plusJakarta = localFont({
+  src: [
+    { path: "../assets/fonts/PlusJakartaSans-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../assets/fonts/PlusJakartaSans-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../assets/fonts/PlusJakartaSans-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../assets/fonts/PlusJakartaSans-Bold.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-portfolio",
 });
 
 export const metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${outfit.className} ${ovo.className}  antialiased leading-8 overflow-x-hidden`}
+        className={`${plusJakarta.variable} antialiased leading-8 overflow-x-hidden`}
       >
         <ThemeProvider>
           {children}

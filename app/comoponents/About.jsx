@@ -4,15 +4,18 @@ import { assets, infoList, toolsData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 import { useTheme } from "next-themes";
+import MotionReveal from "./MotionReveal";
 
 const About = () => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
   return (
     <div id="about" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-ovo">Introduction</h4>
-      <h2 className="text-center text-5xl font-ovo">About Me</h2>
-      <div className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+      <MotionReveal>
+        <h4 className="text-center mb-2 text-lg font-ovo">Introduction</h4>
+        <h2 className="text-center text-5xl font-ovo">About Me</h2>
+      </MotionReveal>
+      <MotionReveal className="flex w-full flex-col lg:flex-row items-center gap-20 my-20" delay={0.08}>
         <div className="w-64 sm:w-80 rounded-3xl max-w-none">
           <Image
             src={assets.profile_img2}
@@ -52,7 +55,7 @@ const About = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </MotionReveal>
     </div>
   );
 };

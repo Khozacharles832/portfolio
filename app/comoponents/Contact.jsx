@@ -1,6 +1,9 @@
+"use client";
+
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React, { useState } from "react";
+import MotionReveal from "./MotionReveal";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -12,19 +15,21 @@ const Contact = () => {
 
     formData.append("access_key", "1e338a18-aa8a-45fe-ac31-6e219537dcc5");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
 
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("Form Submitted Successfully");
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+      if (data.success) {
+        setResult("Form submitted successfully.");
+        event.target.reset();
+      } else {
+        setResult(data.message || "Unable to submit the form. Please try again.");
+      }
+    } catch {
+      setResult("Unable to submit the form. Please check your connection and try again.");
     }
   };
   return (
@@ -32,14 +37,17 @@ const Contact = () => {
       id="contact"
       className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-no-repeat bg-center bg-[length:90%_auto] dark:bg-none"
     >
-      <h4 className="text-center mb-2 text-lg font-ovo">Connect with me</h4>
-      <h2 className="text-center text-5xl font-ovo">Get in touch</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
-        I&apos;d love to hear from you! If you have any questions, comments, or
-        feedback, please use the form below.
-      </p>
+      <MotionReveal>
+        <h4 className="text-center mb-2 text-lg font-ovo">Connect with me</h4>
+        <h2 className="text-center text-5xl font-ovo">Get in touch</h2>
+        <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
+          I&apos;d love to hear from you! If you have any questions, comments, or
+          feedback, please use the form below.
+        </p>
+      </MotionReveal>
 
-      <form onSubmit={onSubmit} className="max-w-2xl mx-auto">
+      <MotionReveal className="max-w-2xl mx-auto" delay={0.1}>
+      <form onSubmit={onSubmit}>
         <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
           <input
             type="text"
@@ -74,6 +82,7 @@ const Contact = () => {
 
         <p className="mt-4">{result}</p>
       </form>
+      </MotionReveal>
     </div>
   );
 };

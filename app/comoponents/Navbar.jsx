@@ -4,6 +4,7 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
+import { motion } from "motion/react";
 import BrandLogo from "./BrandLogo";
 
 const Navbar = () => {
@@ -45,7 +46,10 @@ const Navbar = () => {
       </div>
 
       {/* Navbar */}
-      <nav
+      <motion.nav
+        initial={{ opacity: 0, y: -18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-300 ${
           isScroll ? "bg-surface/85 backdrop-blur-lg border-b border-line/70 shadow-card" : ""
         }`}
@@ -172,7 +176,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-      </nav>
+      </motion.nav>
     </>
   );
 };
